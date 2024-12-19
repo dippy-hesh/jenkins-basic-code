@@ -1,0 +1,18 @@
+pipeline {
+    agent any 
+
+    parameters {
+        string(defaultValue: "PRE-PROD", description: "which environment to deploy?", name: "deployEnv")
+    }
+
+    stages{
+        stage("fin"){
+            steps{
+                echo "echo is ste to: ${params.deplyEnv}"
+            }
+        }
+    }
+}
+
+
+string: it is used as a text as a user input
