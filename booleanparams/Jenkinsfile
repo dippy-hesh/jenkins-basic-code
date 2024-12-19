@@ -1,0 +1,19 @@
+pipeline {
+    agent any
+
+    parameters {
+        booleanParam(defaultValue: false, description: "Enable checkbox", name: "Click")
+
+    }
+
+    stages {
+        stage("itsm") {
+            steps {
+                echo "booleanparam is set to: ${params.Click}"
+            }
+        }
+    }
+}
+
+
+things to de noted :  always keep V captial letter for defaultValue never keep flase in "   booleansparam should be in ()  and params.name should be in {}
