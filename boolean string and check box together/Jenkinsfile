@@ -1,0 +1,19 @@
+pipeline {
+    agent any
+
+    parameters {
+        string(defaultValue: "", description: "Deploy name?", name: "myDeployment")
+        choice(choices: ["TEST", "PROD", "QA"], description: "which environment to deploy?", name: "deploy")
+        booleanParam(defaultValue: false, description: "Enable service", name: "checkbox")
+    }
+
+    stages {
+        stage("demo"){
+            steps {
+                echo "string is set to ${params.myDeployment}"
+                echo "choice is set to ${params.deploy}" 
+                echo "booleanParam is set to ${params.checkbox}"
+            }
+        }
+    }
+}
