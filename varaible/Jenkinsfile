@@ -1,0 +1,19 @@
+pipeline {
+    agent any
+
+    environment {
+        myNumber = 59
+        myBool = true
+        myString = "Hellow paki"
+    }
+
+    stages {
+        stage ("ginger"){
+            steps {
+                echo "myNumber: ${myNumber}"
+                echo "myBool: ${myBool}"
+                echo "myString: {myString}"
+            }
+        }
+    }
+}
