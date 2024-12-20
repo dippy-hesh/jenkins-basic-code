@@ -1,0 +1,23 @@
+pipeline {
+    agent any
+
+    parameters {
+        booleanParam(defaultValue: false, description: "Enable service?", name: "deployEnv")
+    }
+
+    stages {
+        stage("Demo"){
+            steps{
+            script {
+                if(params.deployEnv == false){
+                    currentBuild.result = "SUCCESS"
+                    return
+                }
+                else {
+                    echo "booleanparam is set to: ${params.deployEnv}"
+                }
+            }
+         }
+        }
+    }
+}
